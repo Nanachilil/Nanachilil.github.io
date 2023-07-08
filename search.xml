@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>博客更新日志</title>
+      <link href="/posts/c4442e98/"/>
+      <url>/posts/c4442e98/</url>
+      
+        <content type="html"><![CDATA[<p>本文章以日志形式记录icarus主题的更新内容。</p><span id="more"></span><h2 id="2023-x2F-7-x2F-8"><a href="#2023-x2F-7-x2F-8" class="headerlink" title="2023&#x2F;7&#x2F;8"></a>2023&#x2F;7&#x2F;8</h2><h4 id="尝试实现白天与黑夜主题变换功能"><a href="#尝试实现白天与黑夜主题变换功能" class="headerlink" title="尝试实现白天与黑夜主题变换功能"></a>尝试实现白天与黑夜主题变换功能</h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> icarus优化 </tag>
+            
+            <tag> 日志 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/posts/16107/"/>
       <url>/posts/16107/</url>
@@ -13,10 +40,18 @@
       
       <categories>
           
-          <category> hello </category>
+          <category> 测试 </category>
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 测试1 </tag>
+            
+            <tag> 测试2 </tag>
+            
+        </tags>
       
     </entry>
     
