@@ -13,14 +13,18 @@
       
       <categories>
           
-          <category> 博客主题优化 </category>
+          <category> hexo </category>
+          
+          <category> icarus </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> icarus优化 </tag>
+            <tag> hexo </tag>
+            
+            <tag> icarus </tag>
             
             <tag> 日志 </tag>
             
@@ -40,14 +44,18 @@
       
       <categories>
           
-          <category> 博客主题优化 </category>
+          <category> hexo </category>
+          
+          <category> icarus </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> icarus优化 </tag>
+            <tag> hexo </tag>
+            
+            <tag> icarus </tag>
             
             <tag> 日志 </tag>
             
@@ -67,14 +75,18 @@
       
       <categories>
           
-          <category> 数学 </category>
+          <category> math </category>
+          
+          <category> advanced mathematics </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 高等数学 </tag>
+            <tag> math </tag>
+            
+            <tag> advanced mathematics </tag>
             
         </tags>
       
@@ -92,14 +104,14 @@
       
       <categories>
           
-          <category> test </category>
+          <category> hexo </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> test </tag>
+            <tag> hexo </tag>
             
         </tags>
       
