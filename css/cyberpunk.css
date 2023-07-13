@@ -11930,6 +11930,23 @@ article .title:hover a {
 .symbolic-animals {
   color: #3273dc;
 }
+.is-2-column {
+  background-image: url("https://res.lolicon.app/bilibili/bg_small.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.is-3-column {
+  background-image: url("https://res.lolicon.app/bilibili/bg_small.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.widget {
+  background-color: rgba(255,255,255,0.812);
+}
 body {
   counter-reset: card;
 }
