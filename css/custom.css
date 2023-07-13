@@ -6,7 +6,7 @@
   background-size: cover;
 }
 .is-3-column {
-  background-image: url("https://res.lolicon.app/bilibili/bg_small.png");
+  background-image: url("https://github.com/Nanachilil/Nanachilil.github.io/blob/main/picture/background.png?raw=true");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -14,5 +14,5 @@
 }
 .widget,
 .footer {
-  background-color: rgba(255,255,255,0.812);
+  background-color: rgba(255,255,255,0.8);
 }
