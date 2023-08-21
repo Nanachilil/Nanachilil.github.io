@@ -4,6 +4,41 @@
   
     
     <entry>
+      <title>带头结点的单链表L，删除一个最小结点的高效算法（假设最小结点是唯一的） -004</title>
+      <link href="/posts/c9cd15b6/"/>
+      <url>/posts/c9cd15b6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="带头结点的单链表L，删除一个最小结点的高效算法（假设最小结点是唯一的）"><a href="#带头结点的单链表L，删除一个最小结点的高效算法（假设最小结点是唯一的）" class="headerlink" title="带头结点的单链表L，删除一个最小结点的高效算法（假设最小结点是唯一的）"></a>带头结点的单链表L，删除一个最小结点的高效算法（假设最小结点是唯一的）</h1><span id="more"></span><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​遍历指针，使用两个first，second（使用两个<strong>分别定位</strong>p，pre）</p><p>​最小值删除指针，使用两个p，pre</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">LNode</span>&#123;</span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">LNode</span> *next;</span><br><span class="line">&#125;LNode,*LinkList;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Del_min</span><span class="params">(LinkList &amp;L)</span></span>&#123;</span><br><span class="line">    LNode *p=L-&gt;next,*pre=L;   <span class="comment">//p指向最小的结点.pre指向最小结点的前驱</span></span><br><span class="line">    LNode *first=p,*second=L;  <span class="comment">//first second 用于遍历单链表</span></span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;data&lt;first-&gt;data)&#123;</span><br><span class="line">            first=p;</span><br><span class="line">            second=pre;</span><br><span class="line">        &#125;</span><br><span class="line">        second=first;</span><br><span class="line">        first=first-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    pre-&gt;next=p-&gt;next;</span><br><span class="line">    <span class="keyword">delete</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+          <category> 单链表 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 带头结点 </tag>
+            
+            <tag> 按值删除 </tag>
+            
+            <tag> 单链表 </tag>
+            
+            <tag> 最小值 </tag>
+            
+            <tag> 高效算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值 -003</title>
       <link href="/posts/3e29fe4e/"/>
       <url>/posts/3e29fe4e/</url>
@@ -24,9 +59,9 @@
             
             <tag> 递归 </tag>
             
-            <tag> 单链表 </tag>
-            
             <tag> 带头结点 </tag>
+            
+            <tag> 单链表 </tag>
             
             <tag> 逆序 </tag>
             
@@ -57,11 +92,11 @@
             
             <tag> 递归 </tag>
             
+            <tag> 带头结点 </tag>
+            
             <tag> 按值删除 </tag>
             
             <tag> 单链表 </tag>
-            
-            <tag> 带头结点 </tag>
             
         </tags>
       
@@ -90,11 +125,11 @@
             
             <tag> 递归 </tag>
             
-            <tag> 不带头结点 </tag>
-            
             <tag> 按值删除 </tag>
             
             <tag> 单链表 </tag>
+            
+            <tag> 不带头结点 </tag>
             
         </tags>
       
