@@ -107,9 +107,9 @@
       
         <tags>
             
-            <tag> 单链表 </tag>
-            
             <tag> 带头结点 </tag>
+            
+            <tag> 单链表 </tag>
             
             <tag> 判断对称性 </tag>
             
@@ -140,9 +140,9 @@
       
         <tags>
             
-            <tag> 单链表 </tag>
-            
             <tag> 带头结点 </tag>
+            
+            <tag> 单链表 </tag>
             
             <tag> 元素递增 </tag>
             
@@ -171,9 +171,9 @@
       
         <tags>
             
-            <tag> 单链表 </tag>
-            
             <tag> 带头结点 </tag>
+            
+            <tag> 单链表 </tag>
             
             <tag> 逆序 </tag>
             
@@ -204,13 +204,13 @@
       
         <tags>
             
-            <tag> 按值删除 </tag>
-            
-            <tag> 单链表 </tag>
+            <tag> 最小值 </tag>
             
             <tag> 带头结点 </tag>
             
-            <tag> 最小值 </tag>
+            <tag> 按值删除 </tag>
+            
+            <tag> 单链表 </tag>
             
             <tag> 高效算法 </tag>
             
@@ -239,11 +239,11 @@
       
         <tags>
             
-            <tag> 递归 </tag>
+            <tag> 带头结点 </tag>
             
             <tag> 单链表 </tag>
             
-            <tag> 带头结点 </tag>
+            <tag> 递归 </tag>
             
             <tag> 逆序 </tag>
             
@@ -272,13 +272,13 @@
       
         <tags>
             
-            <tag> 递归 </tag>
+            <tag> 带头结点 </tag>
             
             <tag> 按值删除 </tag>
             
             <tag> 单链表 </tag>
             
-            <tag> 带头结点 </tag>
+            <tag> 递归 </tag>
             
         </tags>
       
@@ -305,13 +305,13 @@
       
         <tags>
             
-            <tag> 递归 </tag>
-            
-            <tag> 不带头结点 </tag>
-            
             <tag> 按值删除 </tag>
             
             <tag> 单链表 </tag>
+            
+            <tag> 递归 </tag>
+            
+            <tag> 不带头结点 </tag>
             
         </tags>
       
