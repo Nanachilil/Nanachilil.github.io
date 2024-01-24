@@ -155,9 +155,9 @@
       
         <tags>
             
-            <tag> 共享栈 </tag>
-            
             <tag> 栈 </tag>
+            
+            <tag> 共享栈 </tag>
             
         </tags>
       
@@ -190,9 +190,9 @@
             
             <tag> 单链表 </tag>
             
-            <tag> 栈 </tag>
-            
             <tag> 判断对称性 </tag>
+            
+            <tag> 栈 </tag>
             
         </tags>
       
