@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title>nihao</title>
-      <link href="/posts/41213a0f/"/>
-      <url>/posts/41213a0f/</url>
-      
-        <content type="html"><![CDATA[<html><head></head><body></body></html>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>test</title>
       <link href="/posts/d87f7e0c/"/>
       <url>/posts/d87f7e0c/</url>
@@ -265,9 +252,9 @@
             
             <tag> 带头结点 </tag>
             
-            <tag> 逆序 </tag>
-            
             <tag> 单链表 </tag>
+            
+            <tag> 逆序 </tag>
             
             <tag> 空间复杂度低 </tag>
             
@@ -298,9 +285,9 @@
             
             <tag> 带头结点 </tag>
             
-            <tag> 单链表 </tag>
-            
             <tag> 按值删除 </tag>
+            
+            <tag> 单链表 </tag>
             
             <tag> 最小值 </tag>
             
@@ -335,9 +322,9 @@
             
             <tag> 带头结点 </tag>
             
-            <tag> 逆序 </tag>
-            
             <tag> 单链表 </tag>
+            
+            <tag> 逆序 </tag>
             
         </tags>
       
@@ -368,9 +355,9 @@
             
             <tag> 带头结点 </tag>
             
-            <tag> 单链表 </tag>
-            
             <tag> 按值删除 </tag>
+            
+            <tag> 单链表 </tag>
             
         </tags>
       
@@ -426,9 +413,9 @@
             
             <tag> 递归 </tag>
             
-            <tag> 单链表 </tag>
-            
             <tag> 按值删除 </tag>
+            
+            <tag> 单链表 </tag>
             
             <tag> 不带头结点 </tag>
             
