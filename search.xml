@@ -211,35 +211,6 @@
     
     
     <entry>
-      <title>设有两个栈s1、s2都采用顺序栈方式，并共享一个存储区[0,  ,maxsize-1],为了尽量利用空间，减少溢出的可能，可采用栈顶相向，迎面增长的存储方式。试设计s1、s2有关入栈和出栈的操作方式 -008</title>
-      <link href="/posts/8d6133f4/"/>
-      <url>/posts/8d6133f4/</url>
-      
-        <content type="html"><![CDATA[<html><head></head><body><h1 id="设有两个栈s1、s2都采用顺序栈方式，并共享一个存储区-0-maxsize-1-为了尽量利用空间，减少溢出的可能，可采用栈顶相向，迎面增长的存储方式。试设计s1、s2有关入栈和出栈的操作方式"><a href="#设有两个栈s1、s2都采用顺序栈方式，并共享一个存储区-0-maxsize-1-为了尽量利用空间，减少溢出的可能，可采用栈顶相向，迎面增长的存储方式。试设计s1、s2有关入栈和出栈的操作方式" class="headerlink" title="设有两个栈s1、s2都采用顺序栈方式，并共享一个存储区[0,  ,maxsize-1],为了尽量利用空间，减少溢出的可能，可采用栈顶相向，迎面增长的存储方式。试设计s1、s2有关入栈和出栈的操作方式"></a>设有两个栈s1、s2都采用顺序栈方式，并共享一个存储区[0,  ,maxsize-1],为了尽量利用空间，减少溢出的可能，可采用栈顶相向，迎面增长的存储方式。试设计s1、s2有关入栈和出栈的操作方式</h1><span id="more"></span><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h4 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h4><p>​1、共享栈的定义</p><p>​2、共享栈两个指针在入栈、出栈时的操作</p><h4 id="代码注意点"><a href="#代码注意点" class="headerlink" title="代码注意点"></a>代码注意点</h4><p>​1、共享栈的定义：<strong>数组空间</strong>、数组存储的<strong>两个栈顶指针</strong></p><p>​2、exit(0)和return的区别，exit(0)是直接终止进程，return是返回函数调用。</p><p>​3、return 0：<strong>第一个含义</strong>一般用在主函数结束时，按照程序开发的一般惯例，表示成功完成本函数。<strong>第二个含义</strong>表示假，一般用于<a href="https://so.csdn.net/so/search?q=bool%E5%87%BD%E6%95%B0&amp;spm=1001.2101.3001.7020">bool函数</a>返回值。在C++中也可以直接用int，返回值为0时为假。宏定义ERROR 与FLASE一般为0。</p><p>​ return 1: 与return 0 的第二个含义相对应，<strong>表示真</strong>，正确。宏定义TRUE，OK一般为1。</p><p>​ return -1: 与return 0 的第一个含义相对应，表示返回一个代数值，一般用在<strong>子函数结尾</strong>。按照程序开发的一般惯例，<strong>表示该函数失败</strong>，在数据结构中，一般指**数据溢出(栈只会出现上溢)**，宏定义OVERFLOW 一般为-1。</p><p>​4、switch每一个case后面都要有break</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxsize 100</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ElemType int <span class="comment">//定义ElemType为int类型</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>{</span><br><span class="line">    ElemType stack[maxsize];</span><br><span class="line">    <span class="type">int</span> top[<span class="number">2</span>];         <span class="comment">//top为两个栈顶指针</span></span><br><span class="line">}stk;</span><br><span class="line"></span><br><span class="line">stk s;        <span class="comment">//s为全局变量</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//入栈操作</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">push</span><span class="params">(<span class="type">int</span> i,ElemType x)</span></span>{     <span class="comment">//i为栈号，i=0表示左边的s1栈，i=2表示右边的s2栈，x为入栈元素</span></span><br><span class="line">    <span class="keyword">if</span>(i&lt;<span class="number">0</span>||i&gt;<span class="number">1</span>){</span><br><span class="line">        cout&lt;&lt;<span class="string">"输入错误"</span>&lt;&lt;endl;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);        <span class="comment">//exit(0)终止程序</span></span><br><span class="line">    }      </span><br><span class="line">    <span class="keyword">if</span>(s.top[<span class="number">1</span>]-s.top[<span class="number">0</span>]==<span class="number">1</span>){</span><br><span class="line">        cout&lt;&lt;<span class="string">"已满"</span>&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">switch</span>(i){</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>: s.stack[++s.top[<span class="number">0</span>]]=x; <span class="keyword">return</span> <span class="number">1</span>;<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>: s.stack[--s.top[<span class="number">1</span>]]=x; <span class="keyword">return</span> <span class="number">1</span>;<span class="keyword">break</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//出栈</span></span><br><span class="line"><span class="function">ElemType <span class="title">pop</span><span class="params">(<span class="type">int</span> i)</span></span>{      <span class="comment">//i表示栈号</span></span><br><span class="line">    <span class="keyword">if</span>(i&lt;<span class="number">0</span>||i&gt;<span class="number">1</span>){</span><br><span class="line">        cout&lt;&lt;<span class="string">"栈号错误"</span>&lt;&lt;endl;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">switch</span>(i){</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span>(s.top[<span class="number">0</span>]==<span class="number">-1</span>){</span><br><span class="line">                cout&lt;&lt;<span class="string">"栈空"</span>&lt;&lt;endl;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">            }<span class="keyword">else</span>{</span><br><span class="line">                <span class="keyword">return</span> s.stack[s.top[<span class="number">0</span>]--];</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">if</span>(s.top[<span class="number">1</span>]==maxsize){</span><br><span class="line">                cout&lt;&lt;<span class="string">"栈空"</span>&lt;&lt;endl;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">            }<span class="keyword">else</span>{</span><br><span class="line">                <span class="keyword">return</span> s.stack[s.top[<span class="number">1</span>]--];</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            }</span><br><span class="line">    }<span class="comment">//switch</span></span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></body></html>]]></content>
-      
-      
-      <categories>
-          
-          <category> 算法 </category>
-          
-          <category> 栈 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 共享栈 </tag>
-            
-            <tag> 栈 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>带头结点的单链表L，设计一个算法使其元素递增 -006</title>
       <link href="/posts/1f97bd59/"/>
       <url>/posts/1f97bd59/</url>
@@ -295,9 +266,9 @@
             
             <tag> 带头结点 </tag>
             
-            <tag> 栈 </tag>
-            
             <tag> 判断对称性 </tag>
+            
+            <tag> 栈 </tag>
             
         </tags>
       
@@ -306,31 +277,27 @@
     
     
     <entry>
-      <title>带头结点代码，单链表逆置，辅助空间为O(1) -005</title>
-      <link href="/posts/b6fb7676/"/>
-      <url>/posts/b6fb7676/</url>
+      <title>设有两个栈s1、s2都采用顺序栈方式，并共享一个存储区[0,  ,maxsize-1],为了尽量利用空间，减少溢出的可能，可采用栈顶相向，迎面增长的存储方式。试设计s1、s2有关入栈和出栈的操作方式 -008</title>
+      <link href="/posts/8d6133f4/"/>
+      <url>/posts/8d6133f4/</url>
       
-        <content type="html"><![CDATA[<html><head></head><body><h1 id="带头结点代码，单链表逆置，辅助空间为O-1"><a href="#带头结点代码，单链表逆置，辅助空间为O-1" class="headerlink" title="带头结点代码，单链表逆置，辅助空间为O(1)"></a>带头结点代码，单链表逆置，辅助空间为O(1)</h1><span id="more"></span><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>将头结点和之后结点断开，头插法插入。断开后，无头结点的链表，需要p，r两个指针（p为工作指针，<strong>r=p-&gt;next防止断链</strong>）</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">LNode</span>{</span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">LNode</span> *next;</span><br><span class="line">}LNode,*LinkList;</span><br><span class="line"></span><br><span class="line"><span class="function">LinkList <span class="title">Reverse_l</span><span class="params">(LinkList &amp;L)</span></span>{</span><br><span class="line">    LNode *p,*r;   <span class="comment">//p为工作指针，r作为后继指针防止断链</span></span><br><span class="line">    p=L-&gt;next;</span><br><span class="line">    L-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="literal">NULL</span>){</span><br><span class="line">        r=p-&gt;next;</span><br><span class="line">        p-&gt;next=L-&gt;next;</span><br><span class="line">        L-&gt;next=p;</span><br><span class="line">        p=r;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> L;</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure></body></html>]]></content>
+        <content type="html"><![CDATA[<html><head></head><body><h1 id="设有两个栈s1、s2都采用顺序栈方式，并共享一个存储区-0-maxsize-1-为了尽量利用空间，减少溢出的可能，可采用栈顶相向，迎面增长的存储方式。试设计s1、s2有关入栈和出栈的操作方式"><a href="#设有两个栈s1、s2都采用顺序栈方式，并共享一个存储区-0-maxsize-1-为了尽量利用空间，减少溢出的可能，可采用栈顶相向，迎面增长的存储方式。试设计s1、s2有关入栈和出栈的操作方式" class="headerlink" title="设有两个栈s1、s2都采用顺序栈方式，并共享一个存储区[0,  ,maxsize-1],为了尽量利用空间，减少溢出的可能，可采用栈顶相向，迎面增长的存储方式。试设计s1、s2有关入栈和出栈的操作方式"></a>设有两个栈s1、s2都采用顺序栈方式，并共享一个存储区[0,  ,maxsize-1],为了尽量利用空间，减少溢出的可能，可采用栈顶相向，迎面增长的存储方式。试设计s1、s2有关入栈和出栈的操作方式</h1><span id="more"></span><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h4 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h4><p>​1、共享栈的定义</p><p>​2、共享栈两个指针在入栈、出栈时的操作</p><h4 id="代码注意点"><a href="#代码注意点" class="headerlink" title="代码注意点"></a>代码注意点</h4><p>​1、共享栈的定义：<strong>数组空间</strong>、数组存储的<strong>两个栈顶指针</strong></p><p>​2、exit(0)和return的区别，exit(0)是直接终止进程，return是返回函数调用。</p><p>​3、return 0：<strong>第一个含义</strong>一般用在主函数结束时，按照程序开发的一般惯例，表示成功完成本函数。<strong>第二个含义</strong>表示假，一般用于<a href="https://so.csdn.net/so/search?q=bool%E5%87%BD%E6%95%B0&amp;spm=1001.2101.3001.7020">bool函数</a>返回值。在C++中也可以直接用int，返回值为0时为假。宏定义ERROR 与FLASE一般为0。</p><p>​ return 1: 与return 0 的第二个含义相对应，<strong>表示真</strong>，正确。宏定义TRUE，OK一般为1。</p><p>​ return -1: 与return 0 的第一个含义相对应，表示返回一个代数值，一般用在<strong>子函数结尾</strong>。按照程序开发的一般惯例，<strong>表示该函数失败</strong>，在数据结构中，一般指**数据溢出(栈只会出现上溢)**，宏定义OVERFLOW 一般为-1。</p><p>​4、switch每一个case后面都要有break</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxsize 100</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ElemType int <span class="comment">//定义ElemType为int类型</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>{</span><br><span class="line">    ElemType stack[maxsize];</span><br><span class="line">    <span class="type">int</span> top[<span class="number">2</span>];         <span class="comment">//top为两个栈顶指针</span></span><br><span class="line">}stk;</span><br><span class="line"></span><br><span class="line">stk s;        <span class="comment">//s为全局变量</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//入栈操作</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">push</span><span class="params">(<span class="type">int</span> i,ElemType x)</span></span>{     <span class="comment">//i为栈号，i=0表示左边的s1栈，i=2表示右边的s2栈，x为入栈元素</span></span><br><span class="line">    <span class="keyword">if</span>(i&lt;<span class="number">0</span>||i&gt;<span class="number">1</span>){</span><br><span class="line">        cout&lt;&lt;<span class="string">"输入错误"</span>&lt;&lt;endl;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);        <span class="comment">//exit(0)终止程序</span></span><br><span class="line">    }      </span><br><span class="line">    <span class="keyword">if</span>(s.top[<span class="number">1</span>]-s.top[<span class="number">0</span>]==<span class="number">1</span>){</span><br><span class="line">        cout&lt;&lt;<span class="string">"已满"</span>&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">switch</span>(i){</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>: s.stack[++s.top[<span class="number">0</span>]]=x; <span class="keyword">return</span> <span class="number">1</span>;<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>: s.stack[--s.top[<span class="number">1</span>]]=x; <span class="keyword">return</span> <span class="number">1</span>;<span class="keyword">break</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//出栈</span></span><br><span class="line"><span class="function">ElemType <span class="title">pop</span><span class="params">(<span class="type">int</span> i)</span></span>{      <span class="comment">//i表示栈号</span></span><br><span class="line">    <span class="keyword">if</span>(i&lt;<span class="number">0</span>||i&gt;<span class="number">1</span>){</span><br><span class="line">        cout&lt;&lt;<span class="string">"栈号错误"</span>&lt;&lt;endl;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">switch</span>(i){</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span>(s.top[<span class="number">0</span>]==<span class="number">-1</span>){</span><br><span class="line">                cout&lt;&lt;<span class="string">"栈空"</span>&lt;&lt;endl;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">            }<span class="keyword">else</span>{</span><br><span class="line">                <span class="keyword">return</span> s.stack[s.top[<span class="number">0</span>]--];</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">if</span>(s.top[<span class="number">1</span>]==maxsize){</span><br><span class="line">                cout&lt;&lt;<span class="string">"栈空"</span>&lt;&lt;endl;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">            }<span class="keyword">else</span>{</span><br><span class="line">                <span class="keyword">return</span> s.stack[s.top[<span class="number">1</span>]--];</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            }</span><br><span class="line">    }<span class="comment">//switch</span></span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></body></html>]]></content>
       
       
       <categories>
           
           <category> 算法 </category>
           
-          <category> 单链表 </category>
+          <category> 栈 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 单链表 </tag>
+            <tag> 栈 </tag>
             
-            <tag> 带头结点 </tag>
-            
-            <tag> 逆序 </tag>
-            
-            <tag> 空间复杂度低 </tag>
+            <tag> 共享栈 </tag>
             
         </tags>
       
@@ -374,6 +341,39 @@
     
     
     <entry>
+      <title>带头结点代码，单链表逆置，辅助空间为O(1) -005</title>
+      <link href="/posts/b6fb7676/"/>
+      <url>/posts/b6fb7676/</url>
+      
+        <content type="html"><![CDATA[<html><head></head><body><h1 id="带头结点代码，单链表逆置，辅助空间为O-1"><a href="#带头结点代码，单链表逆置，辅助空间为O-1" class="headerlink" title="带头结点代码，单链表逆置，辅助空间为O(1)"></a>带头结点代码，单链表逆置，辅助空间为O(1)</h1><span id="more"></span><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>将头结点和之后结点断开，头插法插入。断开后，无头结点的链表，需要p，r两个指针（p为工作指针，<strong>r=p-&gt;next防止断链</strong>）</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">LNode</span>{</span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">LNode</span> *next;</span><br><span class="line">}LNode,*LinkList;</span><br><span class="line"></span><br><span class="line"><span class="function">LinkList <span class="title">Reverse_l</span><span class="params">(LinkList &amp;L)</span></span>{</span><br><span class="line">    LNode *p,*r;   <span class="comment">//p为工作指针，r作为后继指针防止断链</span></span><br><span class="line">    p=L-&gt;next;</span><br><span class="line">    L-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="literal">NULL</span>){</span><br><span class="line">        r=p-&gt;next;</span><br><span class="line">        p-&gt;next=L-&gt;next;</span><br><span class="line">        L-&gt;next=p;</span><br><span class="line">        p=r;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> L;</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+          <category> 单链表 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 单链表 </tag>
+            
+            <tag> 带头结点 </tag>
+            
+            <tag> 逆序 </tag>
+            
+            <tag> 空间复杂度低 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>设计一个递归算法，删除不带头结点的单链表L中所有值为x的结点 -001</title>
       <link href="/posts/f8ef9f43/"/>
       <url>/posts/f8ef9f43/</url>
@@ -407,39 +407,6 @@
     
     
     <entry>
-      <title>L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值 -003</title>
-      <link href="/posts/3e29fe4e/"/>
-      <url>/posts/3e29fe4e/</url>
-      
-        <content type="html"><![CDATA[<html><head></head><body><h1 id="L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值"><a href="#L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值" class="headerlink" title="L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值"></a>L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值</h1><span id="more"></span><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>使用了栈的思想，逆序输出。所以用到了递归，间接使用栈</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">LNode</span>{</span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">LNode</span> *next;</span><br><span class="line">}LNode,*LinkList;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">R_print</span><span class="params">(LinkList &amp;L)</span></span>{</span><br><span class="line">    <span class="keyword">if</span>(L-&gt;next!=<span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">R_print</span>(L-&gt;next);</span><br><span class="line">    <span class="keyword">if</span>(L!=<span class="literal">NULL</span>) cout&lt;&lt;L-&gt;data&lt;&lt;endl;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">R_Ignore_Head</span><span class="params">(LinkList L)</span></span>{</span><br><span class="line">    <span class="keyword">if</span>(L-&gt;next!=<span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">R_print</span>(L-&gt;next);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></body></html>]]></content>
-      
-      
-      <categories>
-          
-          <category> 算法 </category>
-          
-          <category> 单链表 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 递归 </tag>
-            
-            <tag> 单链表 </tag>
-            
-            <tag> 带头结点 </tag>
-            
-            <tag> 逆序 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>带头结点的单链表L，删除所有值为x的结点，并释放空间，假设x唯一 -002</title>
       <link href="/posts/68c06b74/"/>
       <url>/posts/68c06b74/</url>
@@ -465,6 +432,39 @@
             <tag> 单链表 </tag>
             
             <tag> 带头结点 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值 -003</title>
+      <link href="/posts/3e29fe4e/"/>
+      <url>/posts/3e29fe4e/</url>
+      
+        <content type="html"><![CDATA[<html><head></head><body><h1 id="L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值"><a href="#L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值" class="headerlink" title="L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值"></a>L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值</h1><span id="more"></span><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>使用了栈的思想，逆序输出。所以用到了递归，间接使用栈</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">LNode</span>{</span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">LNode</span> *next;</span><br><span class="line">}LNode,*LinkList;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">R_print</span><span class="params">(LinkList &amp;L)</span></span>{</span><br><span class="line">    <span class="keyword">if</span>(L-&gt;next!=<span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">R_print</span>(L-&gt;next);</span><br><span class="line">    <span class="keyword">if</span>(L!=<span class="literal">NULL</span>) cout&lt;&lt;L-&gt;data&lt;&lt;endl;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">R_Ignore_Head</span><span class="params">(LinkList L)</span></span>{</span><br><span class="line">    <span class="keyword">if</span>(L-&gt;next!=<span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">R_print</span>(L-&gt;next);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+          <category> 单链表 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 递归 </tag>
+            
+            <tag> 单链表 </tag>
+            
+            <tag> 带头结点 </tag>
+            
+            <tag> 逆序 </tag>
             
         </tags>
       
