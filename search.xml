@@ -260,9 +260,9 @@
       
         <tags>
             
-            <tag> 单链表 </tag>
-            
             <tag> 带头结点 </tag>
+            
+            <tag> 单链表 </tag>
             
             <tag> 判断对称性 </tag>
             
@@ -293,9 +293,9 @@
       
         <tags>
             
-            <tag> 单链表 </tag>
-            
             <tag> 带头结点 </tag>
+            
+            <tag> 单链表 </tag>
             
             <tag> 元素递增 </tag>
             
@@ -324,9 +324,9 @@
       
         <tags>
             
-            <tag> 单链表 </tag>
-            
             <tag> 带头结点 </tag>
+            
+            <tag> 单链表 </tag>
             
             <tag> 逆序 </tag>
             
@@ -357,48 +357,15 @@
       
         <tags>
             
+            <tag> 带头结点 </tag>
+            
             <tag> 按值删除 </tag>
             
             <tag> 单链表 </tag>
-            
-            <tag> 带头结点 </tag>
             
             <tag> 最小值 </tag>
             
             <tag> 高效算法 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>设计一个递归算法，删除不带头结点的单链表L中所有值为x的结点 -001</title>
-      <link href="/posts/f8ef9f43/"/>
-      <url>/posts/f8ef9f43/</url>
-      
-        <content type="html"><![CDATA[<html><head></head><body><h1 id="设计一个递归算法，删除不带头结点的单链表L中所有值为x的结点"><a href="#设计一个递归算法，删除不带头结点的单链表L中所有值为x的结点" class="headerlink" title="设计一个递归算法，删除不带头结点的单链表L中所有值为x的结点"></a>设计一个递归算法，删除不带头结点的单链表L中所有值为x的结点</h1><span id="more"></span><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​由于L为引用，是直接对原链表进行操作，所以不会断链。</p><p>​参数引用是L-&gt;next,自我调用函数执行完后，虽然p所指结点被删除了，但是返回的依然是L-&gt;next。返回后，整个表是连续的。外层函数并不知道，内层调用时，L移动了位置。</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">LNode</span>{</span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">LNode</span> *next;</span><br><span class="line">}LNode,*LinkList;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Del_X_3</span><span class="params">(LinkList &amp;L,ElemType x)</span></span>{</span><br><span class="line">    LNode *p;    <span class="comment">//p指向待删除结点</span></span><br><span class="line">    <span class="keyword">if</span>(L==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span>(L-&gt;data==x){</span><br><span class="line">        p=L;</span><br><span class="line">        L=L-&gt;next;</span><br><span class="line">        <span class="keyword">delete</span> p;</span><br><span class="line">        <span class="built_in">Del_X_3</span>(L,x);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span>          <span class="comment">//若L所指结点值不为x</span></span><br><span class="line">        <span class="built_in">Del_X_3</span>(L-&gt;next,x);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></body></html>]]></content>
-      
-      
-      <categories>
-          
-          <category> 算法 </category>
-          
-          <category> 单链表 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 递归 </tag>
-            
-            <tag> 不带头结点 </tag>
-            
-            <tag> 按值删除 </tag>
-            
-            <tag> 单链表 </tag>
             
         </tags>
       
@@ -427,11 +394,44 @@
             
             <tag> 递归 </tag>
             
+            <tag> 带头结点 </tag>
+            
             <tag> 按值删除 </tag>
             
             <tag> 单链表 </tag>
             
-            <tag> 带头结点 </tag>
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>设计一个递归算法，删除不带头结点的单链表L中所有值为x的结点 -001</title>
+      <link href="/posts/f8ef9f43/"/>
+      <url>/posts/f8ef9f43/</url>
+      
+        <content type="html"><![CDATA[<html><head></head><body><h1 id="设计一个递归算法，删除不带头结点的单链表L中所有值为x的结点"><a href="#设计一个递归算法，删除不带头结点的单链表L中所有值为x的结点" class="headerlink" title="设计一个递归算法，删除不带头结点的单链表L中所有值为x的结点"></a>设计一个递归算法，删除不带头结点的单链表L中所有值为x的结点</h1><span id="more"></span><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​由于L为引用，是直接对原链表进行操作，所以不会断链。</p><p>​参数引用是L-&gt;next,自我调用函数执行完后，虽然p所指结点被删除了，但是返回的依然是L-&gt;next。返回后，整个表是连续的。外层函数并不知道，内层调用时，L移动了位置。</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">LNode</span>{</span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">LNode</span> *next;</span><br><span class="line">}LNode,*LinkList;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Del_X_3</span><span class="params">(LinkList &amp;L,ElemType x)</span></span>{</span><br><span class="line">    LNode *p;    <span class="comment">//p指向待删除结点</span></span><br><span class="line">    <span class="keyword">if</span>(L==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span>(L-&gt;data==x){</span><br><span class="line">        p=L;</span><br><span class="line">        L=L-&gt;next;</span><br><span class="line">        <span class="keyword">delete</span> p;</span><br><span class="line">        <span class="built_in">Del_X_3</span>(L,x);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span>          <span class="comment">//若L所指结点值不为x</span></span><br><span class="line">        <span class="built_in">Del_X_3</span>(L-&gt;next,x);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+          <category> 单链表 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 递归 </tag>
+            
+            <tag> 按值删除 </tag>
+            
+            <tag> 单链表 </tag>
+            
+            <tag> 不带头结点 </tag>
             
         </tags>
       
@@ -460,9 +460,9 @@
             
             <tag> 递归 </tag>
             
-            <tag> 单链表 </tag>
-            
             <tag> 带头结点 </tag>
+            
+            <tag> 单链表 </tag>
             
             <tag> 逆序 </tag>
             
