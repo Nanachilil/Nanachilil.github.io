@@ -424,6 +424,39 @@
     
     
     <entry>
+      <title>带头结点代码，单链表逆置，辅助空间为O(1) -005</title>
+      <link href="/posts/b6fb7676/"/>
+      <url>/posts/b6fb7676/</url>
+      
+        <content type="html"><![CDATA[<html><head></head><body><h1 id="带头结点代码，单链表逆置，辅助空间为O-1"><a href="#带头结点代码，单链表逆置，辅助空间为O-1" class="headerlink" title="带头结点代码，单链表逆置，辅助空间为O(1)"></a>带头结点代码，单链表逆置，辅助空间为O(1)</h1><span id="more"></span><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>将头结点和之后结点断开，头插法插入。断开后，无头结点的链表，需要p，r两个指针（p为工作指针，<strong>r=p-&gt;next防止断链</strong>）</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">LNode</span>{</span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">LNode</span> *next;</span><br><span class="line">}LNode,*LinkList;</span><br><span class="line"></span><br><span class="line"><span class="function">LinkList <span class="title">Reverse_l</span><span class="params">(LinkList &amp;L)</span></span>{</span><br><span class="line">    LNode *p,*r;   <span class="comment">//p为工作指针，r作为后继指针防止断链</span></span><br><span class="line">    p=L-&gt;next;</span><br><span class="line">    L-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="literal">NULL</span>){</span><br><span class="line">        r=p-&gt;next;</span><br><span class="line">        p-&gt;next=L-&gt;next;</span><br><span class="line">        L-&gt;next=p;</span><br><span class="line">        p=r;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> L;</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+          <category> 单链表 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 单链表 </tag>
+            
+            <tag> 带头结点 </tag>
+            
+            <tag> 逆序 </tag>
+            
+            <tag> 空间复杂度低 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>带头结点的单链表L，删除一个最小结点的高效算法（假设最小结点是唯一的） -004</title>
       <link href="/posts/c9cd15b6/"/>
       <url>/posts/c9cd15b6/</url>
@@ -451,39 +484,6 @@
             <tag> 最小值 </tag>
             
             <tag> 高效算法 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>带头结点代码，单链表逆置，辅助空间为O(1) -005</title>
-      <link href="/posts/b6fb7676/"/>
-      <url>/posts/b6fb7676/</url>
-      
-        <content type="html"><![CDATA[<html><head></head><body><h1 id="带头结点代码，单链表逆置，辅助空间为O-1"><a href="#带头结点代码，单链表逆置，辅助空间为O-1" class="headerlink" title="带头结点代码，单链表逆置，辅助空间为O(1)"></a>带头结点代码，单链表逆置，辅助空间为O(1)</h1><span id="more"></span><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>将头结点和之后结点断开，头插法插入。断开后，无头结点的链表，需要p，r两个指针（p为工作指针，<strong>r=p-&gt;next防止断链</strong>）</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">LNode</span>{</span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">LNode</span> *next;</span><br><span class="line">}LNode,*LinkList;</span><br><span class="line"></span><br><span class="line"><span class="function">LinkList <span class="title">Reverse_l</span><span class="params">(LinkList &amp;L)</span></span>{</span><br><span class="line">    LNode *p,*r;   <span class="comment">//p为工作指针，r作为后继指针防止断链</span></span><br><span class="line">    p=L-&gt;next;</span><br><span class="line">    L-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="literal">NULL</span>){</span><br><span class="line">        r=p-&gt;next;</span><br><span class="line">        p-&gt;next=L-&gt;next;</span><br><span class="line">        L-&gt;next=p;</span><br><span class="line">        p=r;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> L;</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure></body></html>]]></content>
-      
-      
-      <categories>
-          
-          <category> 算法 </category>
-          
-          <category> 单链表 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 单链表 </tag>
-            
-            <tag> 带头结点 </tag>
-            
-            <tag> 逆序 </tag>
-            
-            <tag> 空间复杂度低 </tag>
             
         </tags>
       
@@ -525,39 +525,6 @@
     
     
     <entry>
-      <title>L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值 -003</title>
-      <link href="/posts/3e29fe4e/"/>
-      <url>/posts/3e29fe4e/</url>
-      
-        <content type="html"><![CDATA[<html><head></head><body><h1 id="L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值"><a href="#L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值" class="headerlink" title="L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值"></a>L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值</h1><span id="more"></span><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>使用了栈的思想，逆序输出。所以用到了递归，间接使用栈</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">LNode</span>{</span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">LNode</span> *next;</span><br><span class="line">}LNode,*LinkList;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">R_print</span><span class="params">(LinkList &amp;L)</span></span>{</span><br><span class="line">    <span class="keyword">if</span>(L-&gt;next!=<span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">R_print</span>(L-&gt;next);</span><br><span class="line">    <span class="keyword">if</span>(L!=<span class="literal">NULL</span>) cout&lt;&lt;L-&gt;data&lt;&lt;endl;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">R_Ignore_Head</span><span class="params">(LinkList L)</span></span>{</span><br><span class="line">    <span class="keyword">if</span>(L-&gt;next!=<span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">R_print</span>(L-&gt;next);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></body></html>]]></content>
-      
-      
-      <categories>
-          
-          <category> 算法 </category>
-          
-          <category> 单链表 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 递归 </tag>
-            
-            <tag> 单链表 </tag>
-            
-            <tag> 带头结点 </tag>
-            
-            <tag> 逆序 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>带头结点的单链表L，删除所有值为x的结点，并释放空间，假设x唯一 -002</title>
       <link href="/posts/68c06b74/"/>
       <url>/posts/68c06b74/</url>
@@ -583,6 +550,39 @@
             <tag> 单链表 </tag>
             
             <tag> 带头结点 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值 -003</title>
+      <link href="/posts/3e29fe4e/"/>
+      <url>/posts/3e29fe4e/</url>
+      
+        <content type="html"><![CDATA[<html><head></head><body><h1 id="L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值"><a href="#L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值" class="headerlink" title="L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值"></a>L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值</h1><span id="more"></span><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>使用了栈的思想，逆序输出。所以用到了递归，间接使用栈</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">LNode</span>{</span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">LNode</span> *next;</span><br><span class="line">}LNode,*LinkList;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">R_print</span><span class="params">(LinkList &amp;L)</span></span>{</span><br><span class="line">    <span class="keyword">if</span>(L-&gt;next!=<span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">R_print</span>(L-&gt;next);</span><br><span class="line">    <span class="keyword">if</span>(L!=<span class="literal">NULL</span>) cout&lt;&lt;L-&gt;data&lt;&lt;endl;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">R_Ignore_Head</span><span class="params">(LinkList L)</span></span>{</span><br><span class="line">    <span class="keyword">if</span>(L-&gt;next!=<span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">R_print</span>(L-&gt;next);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+          <category> 单链表 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 递归 </tag>
+            
+            <tag> 单链表 </tag>
+            
+            <tag> 带头结点 </tag>
+            
+            <tag> 逆序 </tag>
             
         </tags>
       
